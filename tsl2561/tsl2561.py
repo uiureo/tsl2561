@@ -14,7 +14,7 @@ https://github.com/adafruit/Adafruit_TSL2561
 
 from __future__ import absolute_import
 import time
-from Adafruit_I2C import Adafruit_I2C
+from Adafruit_GPIO import I2C
 from .constants import *  # pylint: disable=unused-wildcard-import
 
 __author__ = 'Georges Toth <georges@trypill.org>'
@@ -39,7 +39,7 @@ class TSL2561(object):
         else:
             self.address = TSL2561_ADDR_FLOAT
 
-        self.i2c = Adafruit_I2C(self.address)
+        self.i2c = I2C.Device(self.address, 1)
 
         self.debug = debug
         self.integration_time = integration_time
